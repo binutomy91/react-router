@@ -1,34 +1,39 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import Apples from './apples';
 import Oranges from './oranges';
 
+import ApplesDetails from './applesDetails';
+import RouteWithSubRoutes from './routeWithSubRoutes';
 
 const routes = [
   {
-    path: "/apples",
-    routeComponent: Apples
+    path: '/apples',
+    routeComponent: Apples,
+    routes: [
+      {
+        path: "/apples/gala",
+        routeComponent: ApplesDetails
+      }
+    ]
   },
   {
-    path: "/oranges",
+    path: '/oranges',
     routeComponent: Oranges
   }
 ];
 
 class Container extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      test: true
-    };
-  }
+
   render() {
     return (
-      <div>
-        <h1>React Router</h1>
-        <Router>
-          <div>
-            {routes.map(({ path, routeComponent: C }) => (
+      <Router>
+        <div>
+          <h1>React router</h1>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+          {/* {routes.map(({ path, routeComponent: C }) => (
               <Route
                 key={path}
                 path={path}
@@ -36,10 +41,9 @@ class Container extends Component {
                 state={this.state}
                 render={() => <C {...this.state} />}
               />
-            ))}
-          </div>
-        </Router>
-      </div>
+            ))} */}
+        </div>
+      </Router>
     );
   }
 }

@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ApplesDetails extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h1> ApplesDetails</h1>
-      </React.Fragment>
-    );
-  }
+const ApplesDetails = ({ routes }) => {
+  return (
+    <React.Fragment>
+      <h1> ApplesDetails</h1>
+    </React.Fragment>
+  );
 }
 
 export default ApplesDetails;

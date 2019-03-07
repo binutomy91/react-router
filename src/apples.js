@@ -1,14 +1,15 @@
-import React , {Component} from "react";
+import React from 'react';
+import RouteWithSubRoutes from './routeWithSubRoutes';
 
-class Apples extends Component {
-
-    render() {
-        return(
-            <React.Fragment>
-                <h1>Hello Apples</h1>
-            </React.Fragment>
-        )
-    }
-}
+const Apples = ({ routes }) => {
+    return (
+      <React.Fragment>
+        <h1> Apples </h1>
+        {routes.map((route, i) => (
+          <RouteWithSubRoutes key={i} {...route} />
+        ))}
+      </React.Fragment>
+    );
+  }
 
 export default Apples;

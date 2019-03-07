@@ -5,7 +5,7 @@ class Oranges extends Component {
     render() {
         return(
             <React.Fragment>
-                <h1>Hello Oranges</h1>
+                <h1> Oranges</h1>
             </React.Fragment>
         )
     }
