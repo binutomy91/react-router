@@ -24,6 +24,12 @@ const routes = [
 ];
 
 class Container extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      applesasdasd : true
+    }
+  }
 
   render() {
     return (
@@ -31,7 +37,7 @@ class Container extends Component {
         <div>
           <h1>React router</h1>
           {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
+            <RouteWithSubRoutes key={i} {...route} state={this.state} />
           ))}
           {/* {routes.map(({ path, routeComponent: C }) => (
               <Route
